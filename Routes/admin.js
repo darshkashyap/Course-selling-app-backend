@@ -3,6 +3,7 @@ const adminRouter = Router();
 const { adminModel } = require("../db.js");
 const jwt=require("jsonwebtoken");
 const { JWT_ADMIN_PASSWORD } = require("../config.js");
+
 adminRouter.post("/signup", async function(req, res){
 const {email, password,firstName,lastName} = req.body;
 await adminModel.create({
@@ -26,16 +27,44 @@ adminRouter.post("/signin", async function(req, res) {
     }
 });
 
-adminRouter.post("/courses", (req, res) => {
-
+adminRouter.post("/course",adminMiddleware, async function(req, res){
+const adminId = req.adminId;
+const { title, description, price, imageLink, published } = req.body;
+const course = await courseModel.create({
+    title,
+    description,
+    price,
+    imageLink,
+    published,
+    creatorID: adminId,
+});
+res.status(201).json({message: "Course created successfully", courseID: course._id});
 });
 
-adminRouter.get("/courses/bulk", (req, res) => { 
-
+adminRouter.get("/course/bulk",adminMiddleware,async function(req, res)  { 
+    const adminId = req.adminId;
+const course = await courseModel.findOne({
+   creatorID: adminId
+});
+res.status(201).json({message: "Course updated successfully", courses : course});
 });
 
-adminRouter.put("/courses", (req, res) => {
 
+
+adminRouter.put("/course",adminMiddleware,async function(req, res)  {
+const adminId = req.adminId;
+const { title, description, price, imageLink, published } = req.body;
+const course = await courseModel.updateOne({
+    _id:courseId,creatorID: adminId
+}, {
+    title,
+    description,
+    price,
+    imageLink,
+    published,
+});
+res.status(201).json({message: "Course updated successfully", courseID: course._id});
 });
 
-module.exports = {adminRouter: adminRouter};
+
+module.exports = {adminRouter: adminRouter}
