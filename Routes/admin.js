@@ -3,9 +3,29 @@ const adminRouter = Router();
 const { adminModel } = require("../db.js");
 const jwt=require("jsonwebtoken");
 const { JWT_ADMIN_PASSWORD } = require("../config.js");
+const { adminMiddleware } = require('../middleware/admin.js');
+const zod = require("zod");
+
+
+const signupSchema = zod.object({
+    firstName: zod.string().min(2).max(100),
+    lastName: zod.string().min(2).max(100),
+    email: zod.string().email(),
+    password: zod.string().min(6)
+});
+
+const signinSchema = zod.object({
+    email: zod.string().email(),
+    password: zod.string().min(6)
+});
 
 adminRouter.post("/signup", async function(req, res){
 const {email, password,firstName,lastName} = req.body;
+const validationResult = signupSchema.safeParse({ firstName, lastName, email, password });
+
+if (!validationResult.success) {
+    return res.status(400).json({ message: "Invalid input data", errors: validationResult.error.issues });
+}
 await adminModel.create({
     email,
     password,
@@ -18,6 +38,10 @@ res.status(201).json({message: "Admin created successfully"});
 
 adminRouter.post("/signin", async function(req, res) {
   const { email, password } = req.body;
+    const validationResult = signinSchema.safeParse({ email, password });
+    if (!validationResult.success) {
+        return res.status(400).json({ message: "Invalid input data", errors: validationResult.error.issues });
+    }
     const user = await adminModel.findOne({ email: email, password: password });
     if(user) {
        const token = jwt.sign({id:user._id}, JWT_ADMIN_PASSWORD, { expiresIn: "1h" });
