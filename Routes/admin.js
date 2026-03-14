@@ -7,6 +7,7 @@ const { JWT_ADMIN_PASSWORD } = require("../config.js");
 const { adminMiddleware } = require('../middleware/admin.js');
 const zod = require("zod");
 const bcrypt = require("bcrypt");
+
 //ZOD SCHEMAS
 const signupSchema = zod.object({
     firstName: zod.string().min(2).max(100),
