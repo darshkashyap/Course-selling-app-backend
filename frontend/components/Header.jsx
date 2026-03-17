@@ -1,10 +1,8 @@
 import react from "react";
 export default function Header() {
   return (
-    <header>
-      <div>
-        <h1>Coursera</h1>
-      </div>
-    </header>
+    <div className="bg-gray-800 text-white py-4 text-center">
+      <h1 className="text-2xl font-bold">Course Selling App</h1>
+    </div>
   );
 }

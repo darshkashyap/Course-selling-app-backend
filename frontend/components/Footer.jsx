@@ -1,10 +1,8 @@
 import React from "react";
 export default function Footer() {
   return (
-    <footer>
-      <div>
-        <p>&copy; {new Date().getFullYear()} Coursera. All rights reserved.</p>
-      </div>
-    </footer>
+    <div className="bg-gray-800 text-white py-4 text-center">
+      <p>&copy; {new Date().getFullYear()} Course Selling App. All rights reserved.</p>
+    </div>
   );
 }
