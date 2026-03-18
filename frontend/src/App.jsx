@@ -8,8 +8,6 @@ import Signin from '../pages/Signin';
 import Home from '../pages/HomePage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     
     <div className="flex flex-col min-h-screen bg-white text-gray-900">
@@ -17,7 +15,7 @@ function App() {
 
       <main className="flex-1 p-4">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />}/>
           <Route path="/signin" element={<Signin/>} />
           <Route path="/signup" element={<Signup />} />
         
