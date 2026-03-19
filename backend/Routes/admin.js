@@ -2,7 +2,7 @@
 const { Router } = require('express');
 const adminRouter = Router();
 
-const { adminModel, courseModel, userModel } = require("../db.js"); // ✅ FIXED IMPORT
+const { adminModel, courseModel, userModel } = require("../db.js"); 
 const jwt = require("jsonwebtoken");
 const { JWT_ADMIN_PASSWORD } = require("../config.js");
 const { adminMiddleware } = require('../middleware/admin.js');
