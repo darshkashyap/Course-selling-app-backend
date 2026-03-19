@@ -10,8 +10,8 @@ import Profile from '../pages/Profile';
 import ChangeName from '../pages/Change-Name';
 import ChangePassword from '../pages/PasswordEdit';
 import Courses from '../pages/Courses';
-import AllUsers from '../pages/AllUsers';
-import CreateCourse from '../pages/CreateCourse';
+import AllUsers from '../pages/admins/AllUsers';
+import CreateCourse from '../pages/admins/CreateCourse';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 function App() {

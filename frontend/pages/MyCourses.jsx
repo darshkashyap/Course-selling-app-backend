@@ -1,0 +1,1 @@
+//User will be able to view all the courses that he/she has purchased in a separate page.

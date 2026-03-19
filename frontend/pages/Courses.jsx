@@ -4,7 +4,7 @@ export default function Courses() {
     const [courses, setCourses] = useState([]);
     const fetchCourses = async () => {
         try {
-            const res = await axios.get('http://localhost:3000/course');
+            const res = await axios.get('http://localhost:3000/course/preview');
             setCourses(res.data);
         } catch (err) {
             console.error('Error fetching courses:', err);
