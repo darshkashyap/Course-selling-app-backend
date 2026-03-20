@@ -12,6 +12,8 @@ import ChangePassword from '../pages/PasswordEdit';
 import Courses from '../pages/Courses';
 import AllUsers from '../pages/admins/AllUsers';
 import CreateCourse from '../pages/admins/CreateCourse';
+import MyCourses from '../pages/MyCourses';
+
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 function App() {
@@ -28,9 +30,10 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/change-name" element={<ChangeName />} />
           <Route path="/change-password" element={<ChangePassword />} />
-          <Route path="/courses" element={<Courses />} />
+          <Route path="/course/preview" element={<Courses />} />
           <Route path="/admin/users" element={<AllUsers />} />
           <Route path="/admin/create-course" element={<CreateCourse />} />
+          <Route path="/user/purchases" element={<MyCourses />} />
          
         </Routes>
       </main>

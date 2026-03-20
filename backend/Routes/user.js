@@ -51,7 +51,8 @@ userRouter.post("/signup", async (req, res) => {
             firstName,
             lastName,
             email,
-            password: hashedPassword
+            password: hashedPassword,
+             role: "User" 
         });
 
         res.status(201).json({ message: "User created successfully" });
@@ -88,7 +89,7 @@ userRouter.post("/signin", async (req, res) => {
 
 
         const token = jwt.sign(
-            { id: user._id, role: "user" },
+            { id: user._id, role: "User" },
             JWT_USER_PASSWORD,
             { expiresIn: "1h" }
         );

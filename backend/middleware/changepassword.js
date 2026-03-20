@@ -1,4 +1,4 @@
-const { JWT_USER_PASSWORD } = require("../config.js");
+const { JWT_USER_PASSWORD, JWT_ADMIN_PASSWORD } = require("../config.js");
 const jwt = require("jsonwebtoken");
 
 const changePasswordMiddleware = (req, res, next) => {
@@ -9,10 +9,17 @@ const changePasswordMiddleware = (req, res, next) => {
     }
 
     try {
-        const decoded = jwt.verify(token, JWT_USER_PASSWORD);
+        let decoded;
+
+        try {
+            decoded = jwt.verify(token, JWT_USER_PASSWORD);
+        } catch (err) {
+
+            decoded = jwt.verify(token, JWT_ADMIN_PASSWORD);
+        }
 
         req.userId = decoded.userId;
-        req.role = decoded.role; 
+        req.role = decoded.role;
 
         next();
 

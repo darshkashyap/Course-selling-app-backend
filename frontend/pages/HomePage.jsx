@@ -1,3 +1,4 @@
+//BASIC HOME PAGE WITH A WELCOME MESSAGE AND A CALL-TO-ACTION BUTTON TO EXPLORE COURSES.
 import React from 'react'
 import {useNavigate} from 'react-router-dom';
 export default function Home() {

@@ -10,7 +10,7 @@ const cors = require("cors");
 const { adminRouter } = require("./Routes/admin.js");
 const { courseRouter } = require("./Routes/course.js");
 const { userRouter } = require("./Routes/user.js");
-const { authRouter } = require("./Routes/auth.js"); 
+const { authRouter } = require("./Routes/changepassword.js"); 
 
 app.use(cors({
     origin: "http://localhost:5173"

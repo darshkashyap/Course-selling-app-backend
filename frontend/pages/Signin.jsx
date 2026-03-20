@@ -19,8 +19,9 @@ export default function Signin() {
 
             localStorage.setItem('token', res.data.token);
             localStorage.setItem('firstName', res.data.firstName);
+            localStorage.setItem('role', res.data.role);
 
-            navigate('/courses');
+            navigate('/course/preview');
         } catch (err) {
             console.error('Error signing in:', err);
             alert('Error signing in. Please try again.');

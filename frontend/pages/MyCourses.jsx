@@ -7,12 +7,8 @@ export default function MyCourses() {
         try {
             const token = localStorage.getItem("token");
             const res = await axios.get(
-                "http://localhost:3000/user/courses",
-                {
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    }
-                }
+                "http://localhost:3000/user/purchases",
+                { headers: { Authorization: `Bearer ${token}` } }
             );
             setCourses(res.data.courses);
         } catch (error) {

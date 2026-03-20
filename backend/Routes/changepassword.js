@@ -3,7 +3,7 @@ const authRouter = Router();
 
 const { adminModel, userModel } = require("../db.js");
 const bcrypt = require("bcrypt");
-const { changePasswordMiddlware} = require("../middleware/changepassword");
+const { changePasswordMiddleware } = require("../middleware/changepassword.js");
 
 authRouter.put("/change-password", changePasswordMiddleware, async (req, res) => {
     try {
