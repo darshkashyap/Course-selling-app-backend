@@ -20,13 +20,13 @@ export default function About() {
                 </p>
                 <div>Created by Darsh Kashyap</div>
                 <div className="flex gap-4 mt-8">
-                    <a href="https://github.com/darshkashyap" target="_blank" rel="noopener noreferrer" className="bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-600">
+                    <a href="https://github.com/darshkashyap" target="_blank" className="bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-600">
                         <FaGithub className="inline mr-2" /> GitHub
                     </a>
-                    <a href="https://instagram.com/imustbedarsh" target="_blank" rel="noopener noreferrer" className="bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-600">
+                    <a href="https://instagram.com/imustbedarsh" target="_blank" className="bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-600">
                         <FaInstagram className="inline mr-2" /> Instagram
                     </a>
-                    <a href="https://linkedin.com/in/darsh-kashyap/" target="_blank" rel="noopener noreferrer" className="bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-600">
+                    <a href="https://linkedin.com/in/darsh-kashyap/" target="_blank"  className="bg-gray-800 text-white px-4 py-2 rounded-md hover:bg-gray-600">
                         <FaLinkedin className="inline mr-2" /> LinkedIn
                     </a>
                 </div>
